@@ -7,10 +7,13 @@ class Asignatura(models.Model):
     def __str__(self):
         return self.nombre
 
+from django.db import models
+
 class Alumno(models.Model):
     nombre = models.CharField(max_length=100)
     apellido_paterno = models.CharField(max_length=100)
     apellido_materno = models.CharField(max_length=100)
+    año_ingreso = models.IntegerField()
     fecha_nacimiento = models.DateField()
     asignaturas = models.ManyToManyField(Asignatura)
 
