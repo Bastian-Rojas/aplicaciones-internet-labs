@@ -6,7 +6,7 @@ from django.http import HttpResponse
 
 def index(request):
     api_key = "c4ab6bd505b68822b549cd53ec9fe2bc"
-    url = f"https://api.themoviedb.org/3/movie/now_playing?api_key={api_key}&language=en-US&page=1"
+    url = f"https://api.themoviedb.org/3/movie/now_playing?api_key={api_key}&language=es-ES&page=1"
 
     try:
         response = urllib.request.urlopen(url)
