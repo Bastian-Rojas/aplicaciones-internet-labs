@@ -4,8 +4,58 @@
 <head>
     <title>Aplicaciones de Internet</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href='{% static "css/bootstrap.min.css" %}' type="text/css" />
-    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #007bff;
+        }
+
+        .row img {
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            background: #e7e7e7;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+            padding: 10px 20px;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            margin: 5px 0;
+        }
+
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -17,10 +67,10 @@
     
     <div class="container">
         <div class="row">
-            <h1>Lista de Asignaturas</h1>
+            <h1>Lista de cantidad de estudiantes en las asignaturas</h1>
             <ul>
                 {% for asignatura in asignaturas %}
-                    <li>Asignatura: {{ asignatura.nombre }} (Código: {{ asignatura.codigo }})</li>
+                    <li>Asignatura: {{ asignatura.nombre }}</li>
                     <li>Cantidad de Alumnos: {{ asignatura.alumno_set.count }}</li>
                 {% endfor %}
             </ul>
@@ -28,6 +78,7 @@
             <a href="{% url 'crear_alumno' %}" class="btn btn-primary">Crear Alumno</a>
             <a href="{% url 'crear_asignatura' %}" class="btn btn-primary">Crear Asignatura</a>  
             <a href="{% url 'detalle_asignatura' %}" class="btn btn-primary">Detalle de Asignaturas</a>
+            <a href="{% url 'buscar_asignatura' %}" class="btn btn-primary">Buscador de Asignaturas</a>
         </div>
     </div>
 </body>

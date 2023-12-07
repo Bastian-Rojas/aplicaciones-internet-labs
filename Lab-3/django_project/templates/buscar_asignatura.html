@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Buscar Asignatura</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href='{% static "css/bootstrap.min.css" %}' type="text/css" />
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 10px;
+            margin-right: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #1900ff;
+            color: white;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #1900ff;
+        }
+        .boton-regresar {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .boton-regresar button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+        }
+    </style>
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Buscar Asignatura</h1>
+        <form method="get" action="{% url 'resultado_busqueda' %}">
+            <input type="text" name="filtro" placeholder="Nombre de la asignatura">
+            <button type="submit">Buscar</button>
+        </form>
+    </div>
+    <a href="{% url 'lista_asignaturas' %}" class="btn btn-primary boton-regresar">Regresar a Lista de asignatura</a>
+</body>
+</html>
